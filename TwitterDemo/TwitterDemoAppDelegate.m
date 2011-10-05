@@ -36,10 +36,10 @@
     [twitter addURL:[NSURL URLWithString:[NSString stringWithString:@"http://blog.nerdishbynature.com/"]]];
     [viewController presentViewController:twitter animated:YES completion:nil];
     twitter.completionHandler = ^(TWTweetComposeViewControllerResult res) {
-        if (TWTweetComposeViewControllerResultDone) {
+        if (res == TWTweetComposeViewControllerResultDone) {
             UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Wohoo!" message:@"We did it...!" delegate:self cancelButtonTitle:@"Go Away" otherButtonTitles:nil];
             [alertView show];
-        } else if (TWTweetComposeViewControllerResultCancelled) {
+        } else if (res == TWTweetComposeViewControllerResultCancelled) {
             UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Damn it!" message:@"Something went wrong" delegate:self cancelButtonTitle:@"Go Away" otherButtonTitles:nil];
             [alertView show];
         }
